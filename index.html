@@ -3,48 +3,15 @@
 	<head>
 		<title></title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel="icon" href="data:,">
+		<link rel="stylesheet" href="/css/style.css">
 		<script src="https://use.fontawesome.com/9217889cb4.js"></script>
-		<style>
-.striped {
-	background-color: #d3d3d3;
-
-}
-
-.page-background {
-	background-color: #e6e6e6;
-
-}
-		</style>
-	</head>
-	<body class="page-background">
 		<script src="/jquery/dist/jquery.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
-		<script>
-function copyToClipboard(element) {
-	var $temp = $("<textarea>");
-	$("body").append($temp);
-	$temp.val($(element).text()).select();
-	document.execCommand("copy");
-	$temp.remove();
-}
-	var socket = io.connect('http://127.0.0.1:4200');
-	var i = 0;
-	var background_class='';
-	socket.on('messages', function(data) {
-	i++;
-	if(i%2==0) {
-	background_class = 'striped';
-
-}
-	else {
-	background_class = '';
-}
-	var html = '';
-	html = `<button class="fa fa-clipboard pull-right" onClick="copyToClipboard('#p${i}')" ></button> <p id="p${i}"class=${background_class}> ${data} </p>`;
-	console.log(data);
-	$(".sql-list").prepend(html);
-});
-		</script>
+		<script src="/js/socket.js"></script>
+		<script src="/js/copy.js"></script>
+	</head>
+	<body class="page-background">
 		<div class="container">
 			<h1 class="text-success">Query List for Debugging</h1>
 		</div>
